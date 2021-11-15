@@ -9,7 +9,7 @@ from icevision.all import *
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-dir "/711Ass3/"
+dir = "/711Ass3/"
 
 data = pd.read_csv( dir + 'train_set.csv')
 data, valid = train_test_split(data, test_size=0.125, stratify = data['label'])
@@ -49,8 +49,6 @@ dataSplitter = RandomSplitter([1.0,0.0])
 data_dir =  dir + "Training/"
 parser = DataParser(template_record, data_dir, valid)
 valid_records, nothing = parser.parse(data_splitter = dataSplitter)
-
-dataSplitter = RandomSplitter([1.0,0.0])
 parser = DataParser(template_record, data_dir, data)
 train_records, nothing = parser.parse(data_splitter = dataSplitter)
 parser = DataParser(template_record, dir + "Testing/", test)
